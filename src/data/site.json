@@ -1,0 +1,57 @@
+{
+  "site": {
+    "title": "Apridan Husaeni Muharam",
+    "description": "System Administrator & DevOps Engineer | Kubernetes, Docker, Linux Infrastructure",
+    "url": "https://apridan.tech"
+  },
+  "profile": {
+    "name": "Apridan Husaeni Muharam",
+    "title": "System Administrator & DevOps Engineer",
+    "bio": "Infrastructure engineer specializing in Linux, Kubernetes, and on-prem automation. I build reliable systems from cable to container.",
+    "photo": "/assets/profile.jpg",
+    "location": "Yogyakarta, Indonesia",
+    "contact": {
+      "email": "apridan@example.com",
+      "linkedin": "https://linkedin.com/in/apridan-husaeni-muharam",
+      "github": "https://github.com/apridanhm",
+      "gitlab": "https://gitlab.com/apridanhm"
+    }
+  },
+  "nav": ["Home", "Skills", "Projects", "Certifications", "Contact"],
+  "skills": [
+    { "category": "Infrastructure & OS", "items": ["Linux (Ubuntu/Debian)", "Proxmox VE", "Windows Server", "Bash Scripting"] },
+    { "category": "Container & Orchestration", "items": ["Docker", "Kubernetes (RKE2)", "MetalLB", "Ingress-Nginx", "HPA"] },
+    { "category": "CI/CD & Automation", "items": ["GitLab CI/CD", "Git", "GitHub Actions", "Infrastructure as Code"] },
+    { "category": "Networking & Security", "items": ["Nginx", "HAProxy", "VLAN/BGP", "SSO/LDAP/SAML", "Fiber Optic (L1)"] }
+  ],
+  "projects": [
+    {
+      "title": "RKE2 Kubernetes Home Lab",
+      "desc": "6-node cluster (3 CP + 3 Worker) with HAProxy, MetalLB, GitLab CI, and HPA autoscaling for legacy PHP/Nginx workloads.",
+      "tech": ["RKE2", "MetalLB", "GitLab CI", "HPA", "Proxmox VE"],
+      "link": "https://github.com/apridanhm/K8s-RKE2-yaml-Example",
+      "status": "Active"
+    },
+    {
+      "title": "Shibboleth SSO Integration",
+      "desc": "Identity Provider setup with SAML 2.0 for university-wide single sign-on, integrated with LDAP/Active Directory.",
+      "tech": ["Shibboleth IDP 5.x", "SAML 2.0", "LDAP", "PHP 8.3-FPM", "Nginx"],
+      "link": "#",
+      "status": "Production"
+    }
+  ],
+  "certs": [
+    {
+      "name": "Ruckus Bootcamp: Switching & Wireless Expertise",
+      "issuer": "CommScope (Ruckus Networks)",
+      "date": "Jun 2025",
+      "id": "RUCKUS-2025-XXXX"
+    },
+    {
+      "name": "Fiber Optic Installation Training",
+      "issuer": "PT Global Prima Utama",
+      "date": "Feb 2026",
+      "id": "19/CERT/GPU/ET/2026"
+    }
+  ]
+}

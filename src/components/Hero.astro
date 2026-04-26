@@ -1,0 +1,47 @@
+---
+import data from '../data/site.json';
+const { profile } = data;
+---
+
+<section class="min-h-screen flex items-center justify-center px-4">
+  <div class="max-w-4xl w-full text-center space-y-6">
+    
+    <!-- Terminal Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 bg-terminal-card border border-terminal-border rounded-full">
+      <span class="w-2 h-2 rounded-full bg-red-500"></span>
+      <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+      <span class="w-2 h-2 rounded-full bg-green-500"></span>
+      <span class="text-xs font-mono text-terminal-gray ml-2">user@portfolio:~$</span>
+    </div>
+
+    <!-- Name -->
+    <h1 class="text-4xl md:text-6xl font-bold">
+      <span class="text-terminal-green">$</span> {profile.name}
+    </h1>
+    
+    <!-- Title -->
+    <p class="text-xl md:text-2xl text-terminal-cyan font-mono">
+      {profile.title}
+    </p>
+    
+    <!-- Bio -->
+    <p class="text-terminal-gray text-lg max-w-2xl mx-auto">
+      {profile.bio}
+    </p>
+
+    <!-- Location -->
+    <div class="text-sm text-terminal-gray">
+      📍 {profile.location}
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 pt-4">
+      <a href="#projects" class="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded-lg hover:bg-emerald-400 transition">
+        View Projects
+      </a>
+      <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-terminal-card border border-terminal-border text-white font-semibold rounded-lg hover:border-terminal-green transition">
+        GitHub →
+      </a>
+    </div>
+  </div>
+</section>
