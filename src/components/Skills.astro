@@ -1,0 +1,142 @@
+---
+import data from '../data/site.json';
+const { skills } = data;
+
+// Category icons (Lucide via CDN)
+const categoryIcons: Record<string, string> = {
+  'Infrastructure & OS': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server.svg',
+  'Virtualization': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cpu.svg',
+  'Container & Orchestration': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/container.svg',
+  'CI/CD & Automation': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/git-branch.svg',
+  'Networking & Security': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/network.svg'
+};
+
+// Tech icons mapping
+// Kombinasi Devicon (Local) + Lucide (CDN) untuk yang tidak ada di Devicon
+const techIcons: Record<string, string> = {
+  // --- OS & Infra (Devicon Local) ---
+  'Linux': '/assets/icons/linux-original.svg',
+  'Ubuntu': '/assets/icons/ubuntu-plain.svg',
+  'Proxmox VE': '/assets/icons/proxmox-original.svg',
+  'Windows Server': '/assets/icons/windows8-original.svg',
+  'Bash Scripting': '/assets/icons/bash-original.svg',
+  
+  // --- Virtualization (Lucide CDN - karena jarang ada di Devicon) ---
+  'VM Ware': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server-cog.svg',
+  'Nutanix': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server.svg',
+  'KVM': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cpu.svg',
+  'Red Hat OpenShift': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cloud-cog.svg',
+
+  // --- Container (Devicon Local) ---
+  'Docker': '/assets/icons/docker-original.svg',
+  'Kubernetes': '/assets/icons/kubernetes-plain.svg',
+  'RKE2': '/assets/icons/kubernetes-plain.svg',
+  'HPA': '/assets/icons/kubernetes-plain.svg',
+  
+  // --- CI/CD & Git (Devicon Local) ---
+  'GitLab CI/CD': '/assets/icons/gitlab-plain.svg',
+  'Git': '/assets/icons/git-original.svg',
+  'GitHub Actions': '/assets/icons/github-original.svg',
+  'Infrastructure as Code': '/assets/icons/terraform-plain.svg',
+  
+  // --- Networking & Load Balancing (Campuran) ---
+  'Nginx': '/assets/icons/nginx-original.svg',
+  'HAProxy': '/assets/icons/haproxy-plain.svg',
+  'MetalLB': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/network.svg',
+  'Ingress-Nginx': '/assets/icons/nginx-original.svg',
+  
+  // --- Security & Others (Lucide CDN) ---
+  'VLAN/BGP': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/share-2.svg',
+  'SSO/LDAP/SAML': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield-check.svg',
+  'Fiber Optic': 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cable.svg'
+};
+
+// Helper function
+function getIconPath(skill: string): string {
+  // 1. Exact match
+  if (techIcons[skill]) return techIcons[skill];
+  
+  // 2. Partial match
+  for (const [key, value] of Object.entries(techIcons)) {
+    if (skill.toLowerCase().includes(key.toLowerCase())) return value;
+  }
+  
+  return '';
+}
+
+// Helper color filter untuk icon (Biar warnanya nyatu sama tema)
+const iconFilter = 'brightness(0) saturate(100%) invert(73%) sepia(26%) saturate(360%) hue-rotate(117deg) brightness(95%) contrast(88%)';
+const categoryFilter = 'brightness(0) saturate(100%) invert(63%) sepia(80%) saturate(400%) hue-rotate(160deg) brightness(95%) contrast(90%)'; // Warna Cyan
+---
+
+<section id="skills" class="py-20 px-4 bg-terminal-card/20">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold mb-2 flex items-center gap-2">
+        <span class="text-terminal-green">$</span>
+        <span class="font-mono">skills --list</span>
+      </h2>
+      <div class="h-px bg-gradient-to-r from-terminal-green/50 to-transparent"></div>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {skills.map((group) => (
+        <div class="bg-terminal-bg border border-terminal-border rounded-lg p-6 hover:border-terminal-green/50 transition-all group">
+          
+          <!-- Category Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-terminal-card border border-terminal-border rounded-lg flex items-center justify-center group-hover:border-terminal-green/50 transition-all">
+                {categoryIcons[group.category] && (
+                  <img 
+                    src={categoryIcons[group.category]} 
+                    alt={group.category}
+                    class="w-5 h-5"
+                    style={`filter: ${categoryFilter};`}
+                  />
+                )}
+              </div>
+              <h3 class="text-lg font-semibold text-terminal-cyan font-mono">{group.category}</h3>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="flex items-center gap-2">
+              <div class="w-24 h-2 bg-terminal-border rounded-full overflow-hidden">
+                <div 
+                  class="h-full bg-gradient-to-r from-terminal-green to-terminal-cyan rounded-full"
+                  style={`width: ${group.level}%`}
+                ></div>
+              </div>
+              <span class="text-xs font-mono text-terminal-gray">{group.level}%</span>
+            </div>
+          </div>
+
+          <!-- Skills Tags -->
+          <div class="flex flex-wrap gap-2">
+            {group.items.map((skill) => {
+              const iconPath = getIconPath(skill);
+              return (
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-terminal-card border border-terminal-border rounded text-sm text-gray-300 hover:border-terminal-green hover:text-terminal-green transition-all font-mono">
+                  {iconPath && (
+                    <img 
+                      src={iconPath} 
+                      alt="" 
+                      class="w-4 h-4"
+                      style={`filter: ${iconFilter};`}
+                    />
+                  )}
+                  {skill}
+                </span>
+              );
+            })}
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

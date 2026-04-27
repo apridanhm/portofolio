@@ -1,14 +1,13 @@
 {
   "site": {
-    "title": "Apridan Husaeni Muharam",
-    "description": "System Administrator & DevOps Engineer | Kubernetes, Docker, Linux Infrastructure",
+    "title": "Apridan Husaeni Muharam | DevOps Engineer",
+    "description": "System Administrator & DevOps Engineer specializing in Kubernetes, Docker, and Infrastructure Automation",
     "url": "https://apridan.tech"
   },
   "profile": {
     "name": "Apridan Husaeni Muharam",
     "title": "System Administrator & DevOps Engineer",
-    "bio": "Infrastructure engineer specializing in Linux, Kubernetes, and on-prem automation. I build reliable systems from cable to container.",
-    "photo": "/assets/profile.jpg",
+    "bio": "Infrastructure engineer specializing in Linux, Kubernetes, and on prem automation. I build reliable systems from cable to container.",
     "location": "Yogyakarta, Indonesia",
     "contact": {
       "email": "apridan@example.com",
@@ -17,41 +16,74 @@
       "gitlab": "https://gitlab.com/apridanhm"
     }
   },
-  "nav": ["Home", "Skills", "Projects", "Certifications", "Contact"],
+  "stats": {
+    "uptime": "99.9%",
+    "projects": "12+",
+    "certifications": "5+",
+    "coffee": "∞"
+  },
   "skills": [
-    { "category": "Infrastructure & OS", "items": ["Linux (Ubuntu/Debian)", "Proxmox VE", "Windows Server", "Bash Scripting"] },
-    { "category": "Container & Orchestration", "items": ["Docker", "Kubernetes (RKE2)", "MetalLB", "Ingress-Nginx", "HPA"] },
-    { "category": "CI/CD & Automation", "items": ["GitLab CI/CD", "Git", "GitHub Actions", "Infrastructure as Code"] },
-    { "category": "Networking & Security", "items": ["Nginx", "HAProxy", "VLAN/BGP", "SSO/LDAP/SAML", "Fiber Optic (L1)"] }
+    { "category": "Infrastructure & OS", "items": ["Linux (RedHat Family/Debian Family)", "VM Ware", "Red Hat OpenShift", "Proxmox VE", "Nutanix", "KVM", "Windows Server", "Bash Scripting"], "level": 95 },
+    { "category": "Container & Orchestration", "items": ["Docker", "Kubernetes", "MetalLB", "Ingress-Nginx", "HPA"], "level": 90 },
+    { "category": "CI/CD & Automation", "items": ["GitLab CI/CD", "Git", "GitHub Actions", "Infrastructure as Code"], "level": 85 },
+    { "category": "Networking & Security", "items": ["Nginx", "HAProxy", "VLAN/BGP", "SSO/LDAP/SAML", "Fiber Optic (L1)"], "level": 88 }
   ],
-  "projects": [
+ "projects": [
+  {
+    "title": "RKE2 Kubernetes Cluster",
+    "desc": "Self-hosted Kubernetes cluster with GitOps workflow and automated CI/CD pipelines.",
+    "tech": ["Kubernetes", "RKE2", "GitLab CI", "MetalLB"],
+    "link": "https://github.com/apridanhm/K8s-RKE2-yaml-Example",
+    "status": "Active",
+    "uptime": "99.9%"
+  },
+  {
+    "title": "Enterprise Virtualization Platform",
+    "desc": "Production virtualization infrastructure supporting critical business applications.",
+    "tech": ["VM Ware", "Red Hat OpenShift", "Proxmox VE", "KVM"],
+    "link": "#",
+    "status": "Production",
+    "uptime": "99.9%"
+  },
+  {
+    "title": "Identity & Access Management",
+    "desc": "Centralized authentication system for enterprise-wide single sign-on.",
+    "tech": ["SSO", "SAML 2.0", "LDAP", "Identity Management"],
+    "link": "#",
+    "status": "Production",
+    "uptime": "99.5%"
+  },
     {
-      "title": "RKE2 Kubernetes Home Lab",
-      "desc": "6-node cluster (3 CP + 3 Worker) with HAProxy, MetalLB, GitLab CI, and HPA autoscaling for legacy PHP/Nginx workloads.",
-      "tech": ["RKE2", "MetalLB", "GitLab CI", "HPA", "Proxmox VE"],
-      "link": "https://github.com/apridanhm/K8s-RKE2-yaml-Example",
-      "status": "Active"
-    },
-    {
-      "title": "Shibboleth SSO Integration",
-      "desc": "Identity Provider setup with SAML 2.0 for university-wide single sign-on, integrated with LDAP/Active Directory.",
-      "tech": ["Shibboleth IDP 5.x", "SAML 2.0", "LDAP", "PHP 8.3-FPM", "Nginx"],
+      "title": "Backup & Disaster Recovery",
+      "desc": "Enterprise data protection solution with automated snapshots, instant recovery, and cross site replication for business continuity.",
+      "tech": ["Backup Automation", "Instant Recovery", "Disaster Recovery", "SLA Policies", "Data Protection"],
       "link": "#",
-      "status": "Production"
-    }
-  ],
+      "status": "Production",
+      "uptime": "99.8%"
+    },
+  {
+    "title": "Network Infrastructure",
+    "desc": "Enterprise network upgrade project with advanced switching and wireless deployment.",
+    "tech": ["Network Engineering", "VLAN", "Wireless", "Fiber Optic"],
+    "link": "#",
+    "status": "Completed",
+    "uptime": "N/A"
+  }
+],
   "certs": [
     {
       "name": "Ruckus Bootcamp: Switching & Wireless Expertise",
       "issuer": "CommScope (Ruckus Networks)",
-      "date": "Jun 2025",
-      "id": "RUCKUS-2025-XXXX"
+      "date": "June 2025",
+      "id": "RUCKUS-2025-CERT",
+      "icon": "network"
     },
     {
       "name": "Fiber Optic Installation Training",
       "issuer": "PT Global Prima Utama",
-      "date": "Feb 2026",
-      "id": "19/CERT/GPU/ET/2026"
+      "date": "February 2026",
+      "id": "19/CERT/GPU/ET/2026",
+      "icon": "fiber"
     }
   ]
 }

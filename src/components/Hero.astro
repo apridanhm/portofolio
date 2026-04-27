@@ -3,11 +3,35 @@ import data from '../data/site.json';
 const { profile } = data;
 ---
 
-<section class="min-h-screen flex items-center justify-center px-4">
-  <div class="max-w-4xl w-full text-center space-y-6">
+<section class="min-h-screen flex items-center justify-center px-4 py-20">
+  <div class="max-w-6xl w-full text-center">
     
+    <!-- Profile Photo with Glow Effect -->
+    <div class="mb-8 relative inline-block">
+      <!-- Animated glow ring -->
+      <div class="absolute inset-0 bg-gradient-to-r from-terminal-green to-terminal-cyan rounded-full blur-2xl opacity-30 animate-pulse"></div>
+      
+      <!-- Photo container -->
+      <div class="relative w-40 h-40 md:w-52 md:h-52 mx-auto rounded-full border-4 border-terminal-green/50 overflow-hidden bg-terminal-card shadow-2xl">
+        <img 
+          src="/assets/profile.jpg" 
+          alt={profile.name}
+          class="w-full h-full object-cover"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23151e32%22 width=%22100%22 height=%22100%22/%3E%3Ccircle fill=%22%232d3748%22 cx=%2250%22 cy=%2240%22 r=%2220%22/%3E%3Crect fill=%22%232d3748%22 x=%2225%22 y=%2270%22 width=%2250%22 height=%2215%22 rx=%227%22/%3E%3Ctext fill=%22%2300e676%22 font-family=%22monospace%22 font-size=%2230%22 x=%2250%22 y=%2255%22 text-anchor=%22middle%22%3EAH%3C/text%3E%3C/svg%3E'"
+        />
+      </div>
+      
+      <!-- Status indicator (online) -->
+      <div class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-4 border-terminal-bg rounded-full animate-pulse"></div>
+      
+      <!-- Badge -->
+      <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-terminal-card border border-terminal-green/50 rounded-full px-4 py-1 shadow-lg">
+        <span class="text-xs font-mono text-terminal-green">Available for Hire</span>
+      </div>
+    </div>
+
     <!-- Terminal Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 bg-terminal-card border border-terminal-border rounded-full">
+    <div class="inline-flex items-center gap-2 px-4 py-2 bg-terminal-card border border-terminal-border rounded-full mb-6">
       <span class="w-2 h-2 rounded-full bg-red-500"></span>
       <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
       <span class="w-2 h-2 rounded-full bg-green-500"></span>
@@ -15,33 +39,145 @@ const { profile } = data;
     </div>
 
     <!-- Name -->
-    <h1 class="text-4xl md:text-6xl font-bold">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
       <span class="text-terminal-green">$</span> {profile.name}
     </h1>
     
     <!-- Title -->
-    <p class="text-xl md:text-2xl text-terminal-cyan font-mono">
+    <p class="text-xl md:text-2xl text-terminal-cyan font-mono mb-6">
       {profile.title}
     </p>
     
     <!-- Bio -->
-    <p class="text-terminal-gray text-lg max-w-2xl mx-auto">
+    <p class="text-terminal-gray text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
       {profile.bio}
     </p>
 
-    <!-- Location -->
-    <div class="text-sm text-terminal-gray">
-      📍 {profile.location}
+    <!-- Location (Inline SVG) -->
+    <div class="inline-flex items-center gap-2 text-sm text-terminal-gray mb-8">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      <span>{profile.location}</span>
     </div>
 
-    <!-- Buttons -->
-    <div class="flex flex-wrap justify-center gap-4 pt-4">
-      <a href="#projects" class="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded-lg hover:bg-emerald-400 transition">
+    <!-- CTA Buttons (Equal Width) -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <a 
+        href="#projects" 
+        class="min-w-[180px] px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded-lg hover:bg-emerald-400 transition text-center"
+      >
         View Projects
       </a>
-      <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-terminal-card border border-terminal-border text-white font-semibold rounded-lg hover:border-terminal-green transition">
-        GitHub →
+      <a 
+        href={profile.contact.github} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="min-w-[180px] inline-flex items-center justify-center gap-2 px-6 py-3 bg-terminal-card border border-terminal-border text-white font-semibold rounded-lg hover:border-terminal-green transition"
+      >
+        <!-- GitHub Icon -->
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+        </svg>
+        <span>GitHub</span>
       </a>
+    </div>
+
+    <!-- Typing Animation -->
+    <div class="font-mono text-sm">
+      <span class="text-terminal-green">➜</span>
+      <span class="text-terminal-cyan">~</span>
+      <span class="text-gray-300 ml-2" id="typing-text"></span>
+      <span class="cursor-blink text-terminal-green">█</span>
     </div>
   </div>
 </section>
+
+<!-- Typing Animation Script -->
+<script>
+const phrases = [
+  // 🔹 Original
+  'kubectl get pods',
+  'docker ps -a',
+  'systemctl status nginx',
+  'git push origin main',
+  'npm run build',
+  'uptime',
+  'neofetch',
+  'cat /etc/os-release',
+  
+  // 🔹 Tambahan Baru (Container & Orchestration)
+  'docker-compose up -d',
+  'kubectl get nodes',
+  'helm list -A',
+  'docker images --filter "dangling=true"',
+  
+  // 🔹 System & Performance
+  'df -h /',
+  'free -m',
+  'top -bn1 | grep "Cpu(s)"',
+  'journalctl -xe --since "1 hour ago"',
+  
+  // 🔹 Networking & Security
+  'ping 8.8.8.8 -c 4',
+  'netstat -tulpn',
+  'ip addr show',
+  'nslookup api.example.com',
+  'chmod 600 ~/.ssh/id_rsa',
+  
+  // 🔹 Automation & Backup
+  'ansible-playbook deploy.yml -v',
+  'tar -czvf backup_$(date +%F).tar.gz /var/data',
+  'rsync -avz /src/ /dest/',
+  
+  // 🔹 Fun / Flex
+  'whoami',
+  'echo "All systems operational"'
+];
+  
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+  
+  const typingElement = document.getElementById('typing-text');
+  
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+      typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 50;
+    } else {
+      typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 100;
+    }
+    
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isDeleting = true;
+      typingSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typingSpeed = 500; // Pause before typing next
+    }
+    
+    setTimeout(type, typingSpeed);
+  }
+  
+  // Start typing animation
+  type();
+</script>
+
+<style>
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>

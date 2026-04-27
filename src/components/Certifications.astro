@@ -1,0 +1,55 @@
+---
+import data from '../data/site.json';
+const { certs } = data;
+---
+
+<section id="certifications" class="py-20 px-4 bg-terminal-card/20">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold mb-2 flex items-center gap-2">
+        <span class="text-terminal-green">$</span>
+        <span class="font-mono">certifications --list</span>
+      </h2>
+      <div class="h-px bg-gradient-to-r from-yellow-500/50 to-transparent"></div>
+    </div>
+
+    <!-- Certs Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {certs.map((cert) => (
+        <div class="bg-terminal-bg border border-terminal-border rounded-lg p-6 hover:border-yellow-500/50 transition-all group">
+          
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Icon -->
+              <div class="w-12 h-12 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg group-hover:text-yellow-500 transition-colors">{cert.name}</h3>
+                <p class="text-sm text-terminal-gray">{cert.issuer}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-terminal-border">
+            <div class="flex items-center gap-2 text-xs font-mono text-terminal-gray">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span>{cert.date}</span>
+            </div>
+            <div class="text-xs font-mono text-terminal-gray">
+              ID: {cert.id}
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

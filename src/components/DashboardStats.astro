@@ -1,0 +1,59 @@
+---
+import data from '../data/site.json';
+const { stats } = data;
+---
+
+<section class="py-12 px-4 border-y border-terminal-border bg-terminal-card/20">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      
+      <!-- Uptime -->
+      <div class="bg-terminal-bg border border-terminal-border rounded-lg p-4 hover:border-terminal-green transition-all group">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-terminal-gray">SYSTEM UPTIME</span>
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        </div>
+        <div class="text-2xl font-bold text-terminal-green font-mono">{stats.uptime}</div>
+        <div class="text-xs text-terminal-gray mt-1">Last 30 days</div>
+      </div>
+
+      <!-- Projects -->
+      <div class="bg-terminal-bg border border-terminal-border rounded-lg p-4 hover:border-terminal-cyan transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-terminal-gray">PROJECTS</span>
+          <svg class="w-4 h-4 text-terminal-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-terminal-cyan font-mono">{stats.projects}</div>
+        <div class="text-xs text-terminal-gray mt-1">Deployed</div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="bg-terminal-bg border border-terminal-border rounded-lg p-4 hover:border-yellow-500 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-terminal-gray">CERTIFICATIONS</span>
+          <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-yellow-500 font-mono">{stats.certifications}</div>
+        <div class="text-xs text-terminal-gray mt-1">Verified</div>
+      </div>
+
+      <!-- Coffee -->
+      <div class="bg-terminal-bg border border-terminal-border rounded-lg p-4 hover:border-orange-500 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-terminal-gray">COFFEE</span>
+          <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 1v3M10 1v3M14 1v3"/>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-orange-500 font-mono">{stats.coffee}</div>
+        <div class="text-xs text-terminal-gray mt-1">Fuel</div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import DashboardStats from '../components/DashboardStats.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Certifications from '../components/Certifications.astro';
 import data from '../data/site.json';
 
 const { site } = data;
@@ -8,11 +12,20 @@ const { site } = data;
 
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
+  <DashboardStats />
+  <Skills />
+  <Projects />
+  <Certifications />
   
-  <section id="skills" class="py-20 px-4 bg-terminal-card/30">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4"><span class="text-terminal-green">$</span> skills --list</h2>
-      <p class="text-terminal-gray">Loading skills...</p>
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-terminal-border bg-terminal-bg">
+    <div class="max-w-6xl mx-auto text-center text-sm text-terminal-gray">
+      <p class="font-mono">
+        <span class="text-terminal-green">$</span> echo "thank you for coming"
+      </p>
+      <p class="mt-2 text-xs">
+        © {new Date().getFullYear()} {data.profile.name}.
+      </p>
     </div>
-  </section>
+  </footer>
 </BaseLayout>
